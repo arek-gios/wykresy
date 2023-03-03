@@ -1,118 +1,117 @@
         body {
-            
-            font-size: 1rem;
-            line-height: 1rem;
-            font-family: 'Montserrat', sans-serif;
+          font-size: 1rem;
+          line-height: 1rem;
+          font-family: 'Montserrat', sans-serif;
         }
         
         .title {
-            
-            color: #fff;
+          color: #fff;
         }
         
         .logo {
-            max-width: 8rem; 
-            max-height: 8rem;
+          max-width: 8rem;
+          max-height: 8rem;
         }
-
+        
         h1 {
-            font-size: 1.5rem;
-            display: inline;
-            text-align: center;
-            padding-left: 1rem;
-            line-height: 1.5rem;
+          font-size: 1.5rem;
+          display: inline;
+          text-align: center;
+          padding-left: 1rem;
+          line-height: 1.5rem;
         }
-
+        
+        p {
+          padding-top: 2rem;
+        }
+        
         @media (min-width: 768px) {
-            h1 {
-                font-size: 2.418rem;
-                line-height: 2.418rem;
-            }
-            .logo {
-                max-width: 10rem; 
-                max-height:10rem;
-            }
+          h1 {
+            font-size: 2.418rem;
+            line-height: 2.418rem;
           }
-          
-          @media (min-width: 1024px) {
-            h1 {
-                font-size: 3.236rem;
-                line-height: 3.236rem;
-            }
-            .logo {
-                max-width: 15rem; 
-                max-height:15rem;
-            }
+          .logo {
+            max-width: 10rem;
+            max-height: 10rem;
           }
+        }
+        
+        @media (min-width: 1024px) {
+          h1 {
+            font-size: 3.236rem;
+            line-height: 3.236rem;
+          }
+          .logo {
+            max-width: 15rem;
+            max-height: 15rem;
+          }
+          p {
+            padding-top: 0.5rem;
+          }
+        }
         
         h2 {
-            font-size: 2.418rem;
+          font-size: 2.418rem;
         }
         
-        div {
-         /*    width: 100%;
-            margin: 0; */
-          }
-        
         .ex1 {
-            background-color: #1b4631;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-height: 26vh;
-            /* background-color: aqua; */
-            padding-left: 1rem;
-            padding-right: 1rem;
+          background-color: #1b4631;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          max-height: 26vh;
+          /* background-color: aqua; */
+          padding-left: 1rem;
+          padding-right: 1rem;
         }
         
         .ex2 {
-           /* display: inline-block; */
-            padding-left: 1rem;
-            padding-right: 1rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            /* background-color: coral; */
+          /* display: inline-block; */
+          padding-left: 1rem;
+          padding-right: 1rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          /* background-color: coral; */
         }
-
+        
         .glue {
-            position: -webkit-sticky;
-            position: sticky;
-            vertical-align: top;
-            top: 8px;
-            margin: 0;
-            width: auto;
-           /* background-color: aquamarine; */
+          position: -webkit-sticky;
+          position: sticky;
+          vertical-align: top;
+          top: 8px;
+          margin: 0;
+          width: auto;
+          /* background-color: aquamarine; */
         }
-
-        .menu  {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-          }
-          
-          .menu li {
-             float: left;
-          }
-          
-          .menu li a {
-            display: block;
-            color: white;
-            text-align: center;
-            margin-top: 0.4rem;
-            margin-bottom: 0.4rem;
-            margin-left: 1rem;
-            margin-right: 1rem;
-            text-decoration: none;
-          }
-          
-          .menu li a:hover:not(.active) {
-            background-color: #111;
-          }
-          
-          .menu li a.active {
-            float: right;
-          }
-          
+        
+        .menu {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        .menu li {
+          float: left;
+        }
+        
+        .menu li a {
+          display: block;
+          color: white;
+          text-align: center;
+          margin-top: 0.4rem;
+          margin-bottom: 0.4rem;
+          margin-left: 1rem;
+          margin-right: 1rem;
+          text-decoration: none;
+        }
+        
+        .menu li a:hover:not(.active) {
+          background-color: #111;
+        }
+        
+        .menu li a.active {
+          float: right;
+        }

@@ -1,76 +1,81 @@
 <!DOCTYPE html>
 <html lang="pl" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Główny Inspektorat Ochrony Środowiska - wykresy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
-  </head>
-  <body>
 
-    <div class="ex1">
-      <img src="assets/img/logo_gios.svg" class="logo" alt="Logo GIOŚ" />
-      <h1 class="title">Główny Inspektorat Ochrony Środowiska</h1>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Główny Inspektorat Ochrony Środowiska - wykresy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+</head>
 
-    </div>
-    <div class="glue"><ul class="menu">
-        <li><a href="#chart">Wykres pierwszy</a></li>
-        <li><a href="#chart2">Wykres deugi</a></li>
-        <li><a href="#chart3">Wykres trzeci</a></li>
-        <li><a href="#chart4">Wykres czwarty</a></li>
-        <li><a href="#chart5">duda</a></li>
-      </ul></div>
-    <div class="ex2">
-      <h2><script>document.write(lokalizacja);</script>Wykres pierwszy.</h2>
-      <p></p>
-      <div id="chart"></div>
-<a href="#" onclick="chart.export();">Pobierz wykres</a>
-      <h2>Wykres drugi.</h2>
-      <p></p>
-      <div id="chart2"></div>
+<body>
 
-      <h2>Wykres trzeci.</h2>
-      <p></p>
-      <div id="chart3"></div>
+  <div class="ex1">
+    <img src="assets/img/logo_gios.svg" class="logo" alt="Logo GIOŚ" />
+    <h1 class="title">Główny Inspektorat Ochrony Środowiska</h1>
 
-      <h2>Wykres czwarty.</h2>
-      <p></p>
-      <div id="chart4"></div>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p id="chart5">duda</p>
-      <p><br />c<br /></p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p id="chart6">duda</p>
-      <p><br />c<br /></p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p id="chart7">duda</p>
-      <p><br />c<br /></p>
-      <p><br />c</p>
-      <p><br />c</p>
-      <p><br />c</p>
-    </div>
-    <script src="assets/js/chart.js"></script>
-  </body>
+  </div>
+  <div class="glue">
+    <ul class="menu">
+      <li><a href="#title">Wykres pierwszy</a></li>
+      <li><a href="#title2">Wykres drugi</a></li>
+      <li><a href="#title3">Wykres trzeci</a></li>
+      <li><a href="#title4">Wykres czwarty</a></li>
+      <li><a href="#title5">duda</a></li>
+    </ul>
+  </div>
+  <div class="ex2">
+    <p id="title"></p>
+    <h2>
+      <script>document.write(lokalizacja);</script>Wykres pierwszy.
+    </h2>
+    <div id="chart"></div>
+    <a href="#" onclick="chart.export();">Pobierz wykres</a>
+    <p id="title2"></p>
+    <h2>Wykres drugi.</h2>
+    <div id="chart2"></div>
+
+    <p id="title3"></p>
+    <h2>Wykres trzeci.</h2>
+    <div id="chart3"></div>
+
+    <p id="title4"></p>
+    <h2>Wykres czwarty.</h2>
+    <p></p>
+    <div id="chart4"></div>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p id="chart5">duda</p>
+    <p><br />c<br /></p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p id="chart6">duda</p>
+    <p><br />c<br /></p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p id="title5">duda</p>
+    <p><br />c<br /></p>
+    <p><br />c</p>
+    <p><br />c</p>
+    <p><br />c</p>
+  </div>
+  <script src="assets/js/chart.js"></script>
+</body>
+
 </html>

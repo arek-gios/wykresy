@@ -10,6 +10,21 @@ db_location = os.getcwd()+'/assets/data/pomiary.db'
 db_file = os.path.isfile(db_location)
 
 
+def data_verification(to_verify):
+    """ verification of extracted data and conversion of types """
+    
+    print("string do weryfikacji ", to_verify)
+    tere = [s.replace(';', ',') for s in to_verify]
+    tere = tere[0].split(',')
+    validated = [str(tere[0]), str(tere[1]), str(tere[2])]
+# :TODO: make list comprehensions
+    for a in tere[3:]:
+        if a == "" : a = 0.0
+        a = float(a)          
+        validated.append(a)
+        
+    return validated
+
 def add_record():
     pass
 
@@ -62,7 +77,10 @@ if src_file:
     with open(file_location, 'r', newline='')as f:
         reader = csv.reader(f)
         lista = list(reader)
-    print(lista[-1])
+        to_verify = lista[-1]
+        #data_verification(to_verify)
+        print("print82 linia ", data_verification(to_verify))
+
 else:
     print("błąd otwarcia pliku csv")
 
@@ -73,8 +91,6 @@ else:
     print("brak pliku bazy danych")
     create_db(db_location)
     create_table(db_location)
-
-
 
 
 exit()

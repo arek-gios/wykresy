@@ -64,6 +64,36 @@ const data5 ={
     ]
 }
 
+const data6 ={ 
+    labels: data_zdarzenia,
+    datasets: [
+        {
+            name: "Siarczany", type: "line",
+            values: siarczany
+        }
+    ]
+}
+
+const data7 ={ 
+    labels: data_zdarzenia,
+    datasets: [
+        {
+            name: "Chlorki", type: "line",
+            values: chlorki
+        }
+    ]
+}
+
+const data8 ={ 
+    labels: data_zdarzenia,
+    datasets: [
+        {
+            name: "Sód", type: "line",
+            values: sod
+        }
+    ]
+}
+
 
 
 
@@ -130,7 +160,7 @@ const chart5 = new frappe.Chart("#chart5", {
     // or a DOM element,
     // new Chart() in case of ES6 module with above usage
     title: "Poziom pH",
-    data: data4,
+    data: data5,
     type: 'line',
     height: 250,
     colors: ["green"],
@@ -140,7 +170,57 @@ const chart5 = new frappe.Chart("#chart5", {
          }
 });
 
+const chart6 = new frappe.Chart("#chart6", {
+    // or a DOM element,
+    // new Chart() in case of ES6 module with above usage
+    title: "Siarczany",
+    data: data6,
+    type: 'line',
+    height: 250,
+    colors: ["#eeff11"],
+    tooltipOptions: {
+        formatTooltipX: d => (d + '').toUpperCase(),
+        formatTooltipY: d => d + ' mg/l',
+         }
+});
 
+const chart7 = new frappe.Chart("#chart7", {
+    // or a DOM element,
+    // new Chart() in case of ES6 module with above usage
+    title: "Chlorki",
+    data: data7,
+    type: 'line',
+    height: 250,
+    colors: ["violet"],
+    tooltipOptions: {
+        formatTooltipX: d => (d + '').toUpperCase(),
+        formatTooltipY: d => d + ' mg/l',
+         }
+});
+
+const chart8 = new frappe.Chart("#chart8", {
+    // or a DOM element,
+    // new Chart() in case of ES6 module with above usage
+    title: "Sód",
+    data: data8,
+    type: 'line',
+    height: 250,
+    colors: ["brown"],
+    tooltipOptions: {
+        formatTooltipX: d => (d + '').toUpperCase(),
+        formatTooltipY: d => d + ' mg/l',
+         }
+});
+
+
+document.getElementById("export1").addEventListener('click', function() { chart1.export(); });
+document.getElementById("export2").addEventListener('click', function() { chart2.export()});
+document.getElementById("export3").addEventListener('click', function() { chart3.export()});
+document.getElementById("export4").addEventListener('click', function() { chart4.export()});
+document.getElementById("export5").addEventListener('click', function() { chart5.export()});
+document.getElementById("export6").addEventListener('click', function() { chart6.export()});
+document.getElementById("export7").addEventListener('click', function() { chart7.export()});
+document.getElementById("export8").addEventListener('click', function() { chart8.export()});
 
 // const chart = new frappe.Chart("#chart", {
 //     data: { data,

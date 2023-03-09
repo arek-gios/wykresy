@@ -1,37 +1,97 @@
 import os
 import sqlite3
+import csv
 
-historia_temperatury = '.\historia_temperatury.csv'
-def pobierz_dane():
-    """
-    Funkcja zwraca tuplę tupli zawierających dane pobrane z pliku csv
-    do zapisania w tabeli.
-    """
-    print ("robi sie wogóle")
-    pomiary = []  # deklarujemy pustą listę
-    if os.path.isfile('.\historia_temperatury.csv'):  # sprawdzamy czy plik istnieje na dysku
-        print("plik jest")
-        with open(historia_temperatury, "r") as zawartosc:  # otwieramy plik do odczytu
-            print(historia_temperatury)
-            for linia in zawartosc:
-                linia = linia.replace("\n", "")  # usuwamy znaki końca linii
-                linia = linia.replace("\r", "")  # usuwamy znaki końca linii
-#                linia = linia.decode("utf-8")  # odczytujemy znaki jako utf-8
-                # dodajemy elementy do tupli a tuplę do listy
-                pomiary.append(tuple(linia.split(";")))
-    else:
-        print ("pliku nie ma")
-        print ("Plik z danymi", historia_temperatury, "nie istnieje!")
-    duda= tuple(pomiary)
-    return duda  # przekształcamy listę na tuplę i zwracamy ją
+# config
 
-cwok = pobierz_dane()
+file_location = os.getcwd()+'/assets/data/dla_gios.csv'
+src_file = os.path.isfile(file_location)
+db_location = os.getcwd()+'/assets/data/pomiary.db'
+db_file = os.path.isfile(db_location)
 
-print(cwok)
+
+def add_record():
+    pass
+
+def create_db(db):
+    """ create a database connection to a SQLite database """
+    conn = None
+    try:
+        conn = sqlite3.connect(db)
+        print(sqlite3.version)
+    except Error as e:
+        print(e)
+    finally:
+        if conn:
+            conn.close()
+
+def create_table(db):
+    """ create a table in SQLite database """
+    conn = sqlite3.connect(db) 
+    c = conn.cursor()
+
+    c.execute('''
+                CREATE TABLE IF NOT EXISTS pomiar (
+        id INTEGER PRIMARY KEY ASC,
+        date TEXT NOT NULL,
+        time TEXT NOT NULL,
+        time_zone TEXT NOT NULL,
+        empty1  REAL NOT NULL,
+        empty2 REAL NOT NULL,
+        empty3  REAL NOT NULL,
+        press_keller  REAL NOT NULL,
+        temp_keller REAL NOT NULL,
+        volt  REAL NOT NULL,
+        batt  REAL NOT NULL,
+        solar  REAL NOT NULL,
+        empty9  REAL NOT NULL,
+        empty10  REAL NOT NULL,
+        empty11  REAL NOT NULL,
+        empty12  REAL NOT NULL,
+        empty13  REAL NOT NULL,
+        rssi  REAL NOT NULL
+    );
+            ''')
+ 
+    conn.commit()
+
+
+#:TODO: maybe try except it's better?
+
+if src_file: 
+    with open(file_location, 'r', newline='')as f:
+        reader = csv.reader(f)
+        lista = list(reader)
+    print(lista[-1])
+else:
+    print("błąd otwarcia pliku csv")
+
+if db_file: 
+    print("baza istnieje")
+    add_record()
+else:
+    print("brak pliku bazy danych")
+    create_db(db_location)
+    create_table(db_location)
+
+
+
+
+exit()
+
+# row ="20221030;031005;+60;0.9513;5.42;0.7455;1.024;8.91;12.04;4.15;0.00;;;;;;"
+row =["20221030","040005","+60",0.9510,5.47,0.7456,1.024,8.91,12.04,4.15,0.00,0.00,0.00,0.00,0.00,0.00,16.00]
+# linia = row #.split(",")
+# print (linia)
+# print(type(linia))
+
+
+# data = linia[0][:4] + "-" + linia[0][4:6] + "-" + linia[0][-2:] + " " + linia[1][:2] + ":" + linia[1][2:4] + ":" + linia[1][-2:]
+# # YYYY-MM-DD HH:MM:SS.SSS
 
 # utworzenie połączenia z bazą przechowywaną na dysku
 # lub w pamięci (':memory:')
-con = sqlite3.connect('historia_temperatury.db')
+con = sqlite3.connect('duda.db')
 
 # dostęp do kolumn przez indeksy i przez nazwy
 con.row_factory = sqlite3.Row
@@ -40,35 +100,19 @@ con.row_factory = sqlite3.Row
 cur = con.cursor()
 
 # tworzenie tabel
-cur.execute("DROP TABLE IF EXISTS pomiar;")
+# cur.execute("DROP TABLE IF EXISTS pomiar;")
 
-cur.execute("""
-    CREATE TABLE IF NOT EXISTS pomiar (
-        id INTEGER PRIMARY KEY ASC,
-        datapomiaru varchar(250) NOT NULL,
-        termometr varchar(250) NOT NULL,
-        temperatura varchar(250) NOT NULL
-    )""")
+# cur.execute("""
+#     CREATE TABLE IF NOT EXISTS pomiar (
+#         id INTEGER PRIMARY KEY ASC,
+#         datapomiaru varchar(250) NOT NULL,
+#         termometr varchar(250) NOT NULL,
+#         temperatura varchar(250) NOT NULL
+#     )""")
 
-cur.executemany('INSERT INTO pomiar (datapomiaru,termometr,temperatura) VALUES(?,?,?)', cwok)
+cur.execute('INSERT INTO pomiar (date, time, time_zone, empty1, empty2, empty3, press_keller, temp_keller, volt, batt, solar, empty9, empty10, empty11, empty12, empty13, rssi) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [row])
 
-# wstawiamy jeden rekord danych
-#cur.execute('INSERT INTO klasa VALUES(NULL, ?, ?);', ('1A', 'matematyczny'))
-#cur.execute('INSERT INTO klasa VALUES(NULL, ?, ?);', ('1B', 'humanistyczny'))
-
-# wykonujemy zapytanie SQL, które pobierze id klasy "1A" z tabeli "klasa".
-#cur.execute('SELECT id FROM klasa WHERE nazwa = ?', ('1A',))
-#klasa_id = cur.fetchone()[0]
-
-# tupla "uczniowie" zawiera tuple z danymi poszczególnych uczniów
-#uczniowie = (
-#    (None, 'Tomasz', 'Nowak', klasa_id),
-#    (None, 'Jan', 'Kos', klasa_id),
-#    (None, 'Piotr', 'Kowalski', klasa_id)
-#)
-
-# wstawiamy wiele rekordów
-# cur.executemany('INSERT INTO uczen VALUES(?,?,?,?)', uczniowie)
+# wiele rekordów cur.executemany('INSERT INTO pomiar (date, time, time_zone, empty1, empty2, empty3, press_keller, temp_keller, volt, batt, solar, empty9, empty10, empty11, empty12, empty13, rssi) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [row])
 
 # zatwierdzamy zmiany w bazie
 con.commit()

@@ -1,5 +1,24 @@
 import os
 import sqlite3
+import csv
+
+
+
+
+
+file_location = os.getcwd()+'/assets/data/dla_gios.csv'
+src_file = os.path.isfile(file_location)
+
+if src_file: 
+    with open(file_location, 'r', newline='')as f:
+        reader = csv.reader(f)
+        lista = list(reader)
+    print(lista[1])
+else:
+    print("błąd otwarcia pliku csv")
+
+
+exit()
 
 # row ="20221030;031005;+60;0.9513;5.42;0.7455;1.024;8.91;12.04;4.15;0.00;;;;;;"
 row =["20221030","040005","+60",0.9510,5.47,0.7456,1.024,8.91,12.04,4.15,0.00,0.00,0.00,0.00,0.00,0.00,16.00]
@@ -65,6 +84,8 @@ cur = con.cursor()
 #         termometr varchar(250) NOT NULL,
 #         temperatura varchar(250) NOT NULL
 #     )""")
+
+
 
 # print('INSERT INTO pomiar (date, time, time_zone, empty1, empty2, empty3, press_keller, temp_keller, volt, batt, solar, empty9, empty10, empty11, empty12, empty13, rssi) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', row.replace(";", ",")) 
 print(row, " ", len(row))

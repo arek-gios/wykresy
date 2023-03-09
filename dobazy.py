@@ -17,12 +17,12 @@ def data_verification(to_verify):
     tere = [s.replace(';', ',') for s in to_verify]
     tere = tere[0].split(',')
     validated = [str(tere[0]), str(tere[1]), str(tere[2])]
-# :TODO: make list comprehensions
+# TODO make list comprehensions
     for a in tere[3:]:
         if a == "" : a = 0.0
         a = float(a)          
         validated.append(a)
-        
+
     return validated
 
 def add_record():
@@ -30,6 +30,7 @@ def add_record():
 
 def create_db(db):
     """ create a database connection to a SQLite database """
+
     conn = None
     try:
         conn = sqlite3.connect(db)
@@ -42,6 +43,7 @@ def create_db(db):
 
 def create_table(db):
     """ create a table in SQLite database """
+    
     conn = sqlite3.connect(db) 
     c = conn.cursor()
 
@@ -71,7 +73,7 @@ def create_table(db):
     conn.commit()
 
 
-#:TODO: maybe try except it's better?
+# TODO maybe try except it's better?
 
 if src_file: 
     with open(file_location, 'r', newline='')as f:

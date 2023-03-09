@@ -1,109 +1,169 @@
 const  data_zdarzenia = ["01.07.2022","02.07.2022","03.07.2022","04.08.2022","05.08.2022","06.08.2022","07.08.2022","08.08.2022", "01.07.2022","02.07.2022","03.07.2022","04.08.2022","05.08.2022","06.08.2022","07.08.2022","08.08.2022"];
 let lokalizacja = "Odra poniżej Jazu Lipki";
-const tlen = [8.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 10.4, 8.8, 0, 16, 8, 14.1, 10.9];
+const temperatura = [8.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 10.4, 8.8, 0, 16, 8, 14.1, 10.9];
+const cisnienie = [ 9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
+const tlen = [28.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 38, 9, 8, 27, 9]
+const przewodnosc = [8.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 10.4, 8.8, 0, 16, 8, 14.1, 10.9];
 const ph = [ 9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
-const nacl = [28.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 38, 9, 8, 27, 9]
+const siarczany = [28.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 38, 9, 8, 27, 9]
+const chlorki= [ 9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
+const sod= [ 9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
 
-console.log("data " + data_zdarzenia.length);
-console.log("tlen " + tlen.length);
-console.log("ph " + ph.length);
-console.log("nacl " + nacl.length);
+// console.log("data " + data_zdarzenia.length);
+// console.log("tlen " + tlen.length);
+// console.log("ph " + ph.length);
+// console.log("nacl " + nacl.length);
 
-const data = {
+const data1 = {
     labels: data_zdarzenia,
     datasets: [
         {
-            name: "Some Data", type: "bar",
-            values: [25, 40, 30, 35, 8, 52, 17, -4]
-        },
-        {
-            name: "Another Set", type: "line",
-            values: [25, 50, -10, 15, 18, 32, 27, 14]
+            name: "Temperatura", type: "line",
+            values: temperatura
         }
     ]
 }
 
-const data1 ={ 
+const data2 ={ 
     labels: data_zdarzenia,
     datasets: [
         {
-            name: "Some Data", type: "bar",
-            values: [25, 40, 30, 35, 8, 52, 17, -4]
+            name: "Ciśnienie", type: "line",
+            values: cisnienie
         }
     ]
 }
 
-const chart = new frappe.Chart("#chart", {
-    data: {
-        labels: data_zdarzenia,
-        datasets: [
-            {
-                name: "Zawartość Tlen", chartType: 'line',
-                values: tlen 
-            },
-            {
-                name: "pH Wody", chartType: 'line',
-                values: ph
-            }
-            ,
-            {
-                name: "NaCl", chartType: 'line',
-                values: nacl
-            } 
-        ],
+const data3 ={ 
+    labels: data_zdarzenia,
+    datasets: [
+        {
+            name: "Tlen rozpuszczony", type: "line",
+            values: tlen
+        }
+    ]
+}
 
-        yMarkers: [{
-            label: "Dopuszczalne pH", value: 24,
-            options: { labelPos: 'left' }
-        }],
+const data4 ={ 
+    labels: data_zdarzenia,
+    datasets: [
+        {
+            name: "Przewodność", type: "line",
+            values: przewodnosc
+        }
+    ]
+}
 
-        // yRegions: [{ label: "Region", start: -10, end: 50,
-        //    options: { labelPos: 'right' }}]
-    },
+const data5 ={ 
+    labels: data_zdarzenia,
+    datasets: [
+        {
+            name: "Przewodność", type: "line",
+            values: ph
+        }
+    ]
+}
 
-    title: lokalizacja,
-    type: 'axis-mixed', // or 'bar', 'line', 'pie', 'percentage'
-    height: 300,
-    colors: ['red', 'blue', 'green'],
+
+
+
+
+const chart1 = new frappe.Chart("#chart1", {
+    // or a DOM element,
+    // new Chart() in case of ES6 module with above usage
+    title: "Temperatura",
+    data: data1,
+    type: 'line',
+    height: 250,
+    colors: ["#7cd6fd"],
     tooltipOptions: {
         formatTooltipX: d => (d + '').toUpperCase(),
-        formatTooltipY: d => d + ' g/m<sup>3</sup>',
-    },
-    lineOptions: {
-        regionFill: 1 // default: 0 kolorowanie pod linią
-    },
-
+        formatTooltipY: d => d + ' C<sup> o</sup>',
+         }
 });
 
 const chart2 = new frappe.Chart("#chart2", {
     // or a DOM element,
     // new Chart() in case of ES6 module with above usage
-    title: "dane z data typ procentowy",
-    data: data,
-    type: "percentage",
+    title: "Ciśnienie",
+    data: data2,
+    type: 'line',
     height: 250,
-    colors: ["#7cd6fd", "#743ee2"],
+    colors: ["#111111"],
+    tooltipOptions: {
+        formatTooltipX: d => (d + '').toUpperCase(),
+        formatTooltipY: d => d + ' hPa',
+         }
 });
 
 const chart3 = new frappe.Chart("#chart3", {
     // or a DOM element,
     // new Chart() in case of ES6 module with above usage
-    title: "dane z data typ bar",
-    data: data1,
-    type: "bar", //, 'scatter', 'pie', 'percentage'
+    title: "Tlen rozpuszczony",
+    data: data3,
+    type: 'line',
     height: 250,
     colors: ["red"],
+    tooltipOptions: {
+        formatTooltipX: d => (d + '').toUpperCase(),
+        formatTooltipY: d => d + ' mg/l',
+         }
+    
 });
 
 const chart4 = new frappe.Chart("#chart4", {
     // or a DOM element,
     // new Chart() in case of ES6 module with above usage
-    title: "dane z data typ bar",
-    data: data1,
-    type: "bar", 
-        height: 250,
-        colors: ["blue"],
-        barOptions: {
-            spaceRatio: 0.2,
-        } ,
+    title: "Przewodność",
+    data: data4,
+    type: 'line',
+    height: 250,
+    colors: ["orange"],
+    tooltipOptions: {
+        formatTooltipX: d => (d + '').toUpperCase(),
+        formatTooltipY: d => d + ' µS/cm',
+         }
 });
+
+
+const chart5 = new frappe.Chart("#chart5", {
+    // or a DOM element,
+    // new Chart() in case of ES6 module with above usage
+    title: "Poziom pH",
+    data: data4,
+    type: 'line',
+    height: 250,
+    colors: ["green"],
+    tooltipOptions: {
+        formatTooltipX: d => (d + '').toUpperCase(),
+        formatTooltipY: d => d + ' pH',
+         }
+});
+
+
+
+// const chart = new frappe.Chart("#chart", {
+//     data: { data,
+
+//         yMarkers: [{
+//             label: "Dopuszczalne pH", value: 24,
+//             options: { labelPos: 'left' }
+//         }],
+
+//         // yRegions: [{ label: "Region", start: -10, end: 50,
+//         //    options: { labelPos: 'right' }}]
+//     },
+
+//     title: lokalizacja,
+//     type: 'axis-mixed', // or 'bar', 'line', 'pie', 'percentage'
+//     height: 300,
+//     colors: ['red', 'blue', 'green'],
+//     tooltipOptions: {
+//         formatTooltipX: d => (d + '').toUpperCase(),
+//         formatTooltipY: d => d + ' g/m<sup>3</sup>',
+//     },
+//     lineOptions: {
+//         regionFill: 1 // default: 0 kolorowanie pod linią
+//     },
+
+// });

@@ -19,8 +19,9 @@
     <h1 class="title">Główny Inspektorat Ochrony Środowiska</h1>
 
   </div>
-  <div class="glue">
-    <ul class="menu">
+  <div class="glue menu">
+    <div class="left">
+    <ul>
       <li><a href="#title">Temperatura wody [st.C]</a></li>
       <li><a href="#title2">Ciśnienie</a></li>
       <li><a href="#title3">Tlen rozpuszczony [mg/l]      </a></li>
@@ -31,6 +32,23 @@
       <li><a href="#title8">Sód [mg/l]</a></li>
     </ul>
   </div>
+    <div class="right">
+      <label for="miesiace">Wybierz miesiąc: </label>
+      <select name="miesiace" id="miesiace">
+        
+      <option value="-">----</option>
+      <option value="now">ostatnie 30 dni</option>
+      <option value="202301">styczeń</option>
+      <option value="202302">luty</option>
+      <option value="202303">marzec</option>
+      <option value="202304">kwiecień</option>
+    </select>
+  </div>
+    
+
+  </div>
+  <br />
+  <h1 id="title_termin">Pomiary z </h1>
   <div class="ex2">
    <!-- -->
     <p id="title"></p>
@@ -82,7 +100,14 @@
    <a id="export8" href="#">Pobierz wykres</a>
    
   </div>
-  <p></p>
+  
+
+   <!-- -->
+   
+   <p id="map"></p>
+  <h2>Przybliżona lokalizacja stacji pomiarowej</h2>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4963.647615955038!2d18.325502016571026!3d49.921554079405915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDnCsDU1JzE3LjYiTiAxOMKwMTknMzkuNyJF!5e1!3m2!1spl!2spl!4v1678447116888!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
   <script src="assets/js/chart.js"></script>
 </body>
 

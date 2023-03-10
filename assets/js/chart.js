@@ -99,8 +99,6 @@ const data8 ={
 
 
 const chart1 = new frappe.Chart("#chart1", {
-    // or a DOM element,
-    // new Chart() in case of ES6 module with above usage
     title: "Temperatura",
     data: data1,
     type: 'line',
@@ -113,8 +111,6 @@ const chart1 = new frappe.Chart("#chart1", {
 });
 
 const chart2 = new frappe.Chart("#chart2", {
-    // or a DOM element,
-    // new Chart() in case of ES6 module with above usage
     title: "Ciśnienie",
     data: data2,
     type: 'line',
@@ -127,8 +123,6 @@ const chart2 = new frappe.Chart("#chart2", {
 });
 
 const chart3 = new frappe.Chart("#chart3", {
-    // or a DOM element,
-    // new Chart() in case of ES6 module with above usage
     title: "Tlen rozpuszczony",
     data: data3,
     type: 'line',
@@ -142,8 +136,6 @@ const chart3 = new frappe.Chart("#chart3", {
 });
 
 const chart4 = new frappe.Chart("#chart4", {
-    // or a DOM element,
-    // new Chart() in case of ES6 module with above usage
     title: "Przewodność",
     data: data4,
     type: 'line',
@@ -157,8 +149,6 @@ const chart4 = new frappe.Chart("#chart4", {
 
 
 const chart5 = new frappe.Chart("#chart5", {
-    // or a DOM element,
-    // new Chart() in case of ES6 module with above usage
     title: "Poziom pH",
     data: data5,
     type: 'line',
@@ -171,8 +161,6 @@ const chart5 = new frappe.Chart("#chart5", {
 });
 
 const chart6 = new frappe.Chart("#chart6", {
-    // or a DOM element,
-    // new Chart() in case of ES6 module with above usage
     title: "Siarczany",
     data: data6,
     type: 'line',
@@ -185,8 +173,6 @@ const chart6 = new frappe.Chart("#chart6", {
 });
 
 const chart7 = new frappe.Chart("#chart7", {
-    // or a DOM element,
-    // new Chart() in case of ES6 module with above usage
     title: "Chlorki",
     data: data7,
     type: 'line',
@@ -199,13 +185,11 @@ const chart7 = new frappe.Chart("#chart7", {
 });
 
 const chart8 = new frappe.Chart("#chart8", {
-    // or a DOM element,
-    // new Chart() in case of ES6 module with above usage
     title: "Sód",
     data: data8,
     type: 'line',
     height: 250,
-    colors: ["brown"],
+    colors: ["red"],
     tooltipOptions: {
         formatTooltipX: d => (d + '').toUpperCase(),
         formatTooltipY: d => d + ' mg/l',
@@ -221,6 +205,50 @@ document.getElementById("export5").addEventListener('click', function() { chart5
 document.getElementById("export6").addEventListener('click', function() { chart6.export()});
 document.getElementById("export7").addEventListener('click', function() { chart7.export()});
 document.getElementById("export8").addEventListener('click', function() { chart8.export()});
+
+
+// read param from url
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+
+select_month = params.title
+
+// h1 termin pomiarów
+if(isNaN(select_month)){
+    document.getElementById("title_termin").insertAdjacentHTML(
+        'beforeend',
+        'ostatnich 30 dni',
+      );
+ } else {
+let opis = select_month.substr(0,4) + " - " + select_month.substr(5,6);
+document.getElementById("title_termin").insertAdjacentHTML(
+    'beforeend',
+    opis,
+  );
+ }
+
+let ms = document.getElementById("miesiace")
+let ms_value = ms.options[ms.selectedIndex].value
+
+document.getElementById("miesiace").addEventListener('change', function() { reload(ms_value)});
+
+ function reload(zmiana_daty) {   
+let ms = document.getElementById("miesiace")
+let ms_value = ms.options[ms.selectedIndex].value
+   if(!isNaN(ms_value)){
+          window.location.href = "file:///E:/arek/git/wykresy/index.html?title=" + ms_value;
+       }else {
+        window.location.href = "file:///E:/arek/git/wykresy/index.html";
+       }
+  }
+
+
+
+
+
+
+
+
 
 // const chart = new frappe.Chart("#chart", {
 //     data: { data,

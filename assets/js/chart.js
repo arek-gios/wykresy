@@ -220,22 +220,29 @@ if (isNaN(select_month)) {
         'ostatnich 30 dni',
     );
 } else {
-    let opis = select_month.substr(0, 4) + " - " + select_month.substr(5, 6);
+    let month_name = month(select_month.substr(5, 6))
+    let opis = month_name + select_month.substr(0, 4);
     document.getElementById("title_termin").insertAdjacentHTML(
         'beforeend',
         opis,
     );
 }
 
+function month(month) {
+    const month_name = [" Styczeń ", " Luty ", " Marzec ", " Kwiecień ", " Maj ", " Czerwiec ", " Lipiec ", " Sierpień ", " Wrzesień ", " Październik ", " Listopad ", " Grudzień "];
+    select = month_name[month - 1];
+    return select;
+}
+
 let ms = document.getElementById("miesiace");
 
-document.getElementById("miesiace").addEventListener('change', function () { reload(ms.options[ms.selectedIndex].value)});
+document.getElementById("miesiace").addEventListener('change', function () { reload(ms.options[ms.selectedIndex].value) });
 
 function reload(zmiana_daty) {
-    if (!isNaN(zmiana_daty)) {
-        window.location.href = "index.html?title=" + zmiana_daty;
-    } else {
+    if (isNaN(zmiana_daty)) {
         window.location.href = "error.html";
+    } else {
+        window.location.href = "index.html?title=" + zmiana_daty;
     }
 }
 

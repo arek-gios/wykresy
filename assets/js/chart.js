@@ -1,13 +1,13 @@
-const  data_zdarzenia = ["01.07.2022","02.07.2022","03.07.2022","04.08.2022","05.08.2022","06.08.2022","07.08.2022","08.08.2022", "01.07.2022","02.07.2022","03.07.2022","04.08.2022","05.08.2022","06.08.2022","07.08.2022","08.08.2022"];
+const data_zdarzenia = ["01.07.2022", "02.07.2022", "03.07.2022", "04.08.2022", "05.08.2022", "06.08.2022", "07.08.2022", "08.08.2022", "01.07.2022", "02.07.2022", "03.07.2022", "04.08.2022", "05.08.2022", "06.08.2022", "07.08.2022", "08.08.2022"];
 let lokalizacja = "Odra poniżej Jazu Lipki";
 const temperatura = [8.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 10.4, 8.8, 0, 16, 8, 14.1, 10.9];
-const cisnienie = [ 9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
+const cisnienie = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
 const tlen = [28.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 38, 9, 8, 27, 9]
 const przewodnosc = [8.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 10.4, 8.8, 0, 16, 8, 14.1, 10.9];
-const ph = [ 9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
+const ph = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
 const siarczany = [28.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 38, 9, 8, 27, 9]
-const chlorki= [ 9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
-const sod= [ 9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
+const chlorki = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
+const sod = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
 
 // console.log("data " + data_zdarzenia.length);
 // console.log("tlen " + tlen.length);
@@ -24,7 +24,7 @@ const data1 = {
     ]
 }
 
-const data2 ={ 
+const data2 = {
     labels: data_zdarzenia,
     datasets: [
         {
@@ -34,7 +34,7 @@ const data2 ={
     ]
 }
 
-const data3 ={ 
+const data3 = {
     labels: data_zdarzenia,
     datasets: [
         {
@@ -44,7 +44,7 @@ const data3 ={
     ]
 }
 
-const data4 ={ 
+const data4 = {
     labels: data_zdarzenia,
     datasets: [
         {
@@ -54,7 +54,7 @@ const data4 ={
     ]
 }
 
-const data5 ={ 
+const data5 = {
     labels: data_zdarzenia,
     datasets: [
         {
@@ -64,7 +64,7 @@ const data5 ={
     ]
 }
 
-const data6 ={ 
+const data6 = {
     labels: data_zdarzenia,
     datasets: [
         {
@@ -74,7 +74,7 @@ const data6 ={
     ]
 }
 
-const data7 ={ 
+const data7 = {
     labels: data_zdarzenia,
     datasets: [
         {
@@ -84,7 +84,7 @@ const data7 ={
     ]
 }
 
-const data8 ={ 
+const data8 = {
     labels: data_zdarzenia,
     datasets: [
         {
@@ -107,7 +107,7 @@ const chart1 = new frappe.Chart("#chart1", {
     tooltipOptions: {
         formatTooltipX: d => (d + '').toUpperCase(),
         formatTooltipY: d => d + ' C<sup> o</sup>',
-         }
+    }
 });
 
 const chart2 = new frappe.Chart("#chart2", {
@@ -119,7 +119,7 @@ const chart2 = new frappe.Chart("#chart2", {
     tooltipOptions: {
         formatTooltipX: d => (d + '').toUpperCase(),
         formatTooltipY: d => d + ' hPa',
-         }
+    }
 });
 
 const chart3 = new frappe.Chart("#chart3", {
@@ -131,8 +131,8 @@ const chart3 = new frappe.Chart("#chart3", {
     tooltipOptions: {
         formatTooltipX: d => (d + '').toUpperCase(),
         formatTooltipY: d => d + ' mg/l',
-         }
-    
+    }
+
 });
 
 const chart4 = new frappe.Chart("#chart4", {
@@ -144,7 +144,7 @@ const chart4 = new frappe.Chart("#chart4", {
     tooltipOptions: {
         formatTooltipX: d => (d + '').toUpperCase(),
         formatTooltipY: d => d + ' µS/cm',
-         }
+    }
 });
 
 
@@ -157,7 +157,7 @@ const chart5 = new frappe.Chart("#chart5", {
     tooltipOptions: {
         formatTooltipX: d => (d + '').toUpperCase(),
         formatTooltipY: d => d + ' pH',
-         }
+    }
 });
 
 const chart6 = new frappe.Chart("#chart6", {
@@ -169,7 +169,7 @@ const chart6 = new frappe.Chart("#chart6", {
     tooltipOptions: {
         formatTooltipX: d => (d + '').toUpperCase(),
         formatTooltipY: d => d + ' mg/l',
-         }
+    }
 });
 
 const chart7 = new frappe.Chart("#chart7", {
@@ -181,7 +181,7 @@ const chart7 = new frappe.Chart("#chart7", {
     tooltipOptions: {
         formatTooltipX: d => (d + '').toUpperCase(),
         formatTooltipY: d => d + ' mg/l',
-         }
+    }
 });
 
 const chart8 = new frappe.Chart("#chart8", {
@@ -193,18 +193,18 @@ const chart8 = new frappe.Chart("#chart8", {
     tooltipOptions: {
         formatTooltipX: d => (d + '').toUpperCase(),
         formatTooltipY: d => d + ' mg/l',
-         }
+    }
 });
 
 
-document.getElementById("export1").addEventListener('click', function() { chart1.export(); });
-document.getElementById("export2").addEventListener('click', function() { chart2.export()});
-document.getElementById("export3").addEventListener('click', function() { chart3.export()});
-document.getElementById("export4").addEventListener('click', function() { chart4.export()});
-document.getElementById("export5").addEventListener('click', function() { chart5.export()});
-document.getElementById("export6").addEventListener('click', function() { chart6.export()});
-document.getElementById("export7").addEventListener('click', function() { chart7.export()});
-document.getElementById("export8").addEventListener('click', function() { chart8.export()});
+document.getElementById("export1").addEventListener('click', function () { chart1.export(); });
+document.getElementById("export2").addEventListener('click', function () { chart2.export() });
+document.getElementById("export3").addEventListener('click', function () { chart3.export() });
+document.getElementById("export4").addEventListener('click', function () { chart4.export() });
+document.getElementById("export5").addEventListener('click', function () { chart5.export() });
+document.getElementById("export6").addEventListener('click', function () { chart6.export() });
+document.getElementById("export7").addEventListener('click', function () { chart7.export() });
+document.getElementById("export8").addEventListener('click', function () { chart8.export() });
 
 
 // read param from url
@@ -214,33 +214,30 @@ const params = Object.fromEntries(urlSearchParams.entries());
 select_month = params.title
 
 // h1 termin pomiarów
-if(isNaN(select_month)){
+if (isNaN(select_month)) {
     document.getElementById("title_termin").insertAdjacentHTML(
         'beforeend',
         'ostatnich 30 dni',
-      );
- } else {
-let opis = select_month.substr(0,4) + " - " + select_month.substr(5,6);
-document.getElementById("title_termin").insertAdjacentHTML(
-    'beforeend',
-    opis,
-  );
- }
+    );
+} else {
+    let opis = select_month.substr(0, 4) + " - " + select_month.substr(5, 6);
+    document.getElementById("title_termin").insertAdjacentHTML(
+        'beforeend',
+        opis,
+    );
+}
 
-let ms = document.getElementById("miesiace")
-let ms_value = ms.options[ms.selectedIndex].value
+let ms = document.getElementById("miesiace");
 
-document.getElementById("miesiace").addEventListener('change', function() { reload(ms_value)});
+document.getElementById("miesiace").addEventListener('change', function () { reload(ms.options[ms.selectedIndex].value)});
 
- function reload(zmiana_daty) {   
-let ms = document.getElementById("miesiace")
-let ms_value = ms.options[ms.selectedIndex].value
-   if(!isNaN(ms_value)){
-          window.location.href = "file:///E:/arek/git/wykresy/index.html?title=" + ms_value;
-       }else {
-        window.location.href = "file:///E:/arek/git/wykresy/index.html";
-       }
-  }
+function reload(zmiana_daty) {
+    if (!isNaN(zmiana_daty)) {
+        window.location.href = "index.html?title=" + zmiana_daty;
+    } else {
+        window.location.href = "error.html";
+    }
+}
 
 
 

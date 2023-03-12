@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Główny Inspektorat Ochrony Środowiska - wykresy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+</head>
+
+<body>
+
+  <div class="ex1">
+    <img src="assets/img/logo_gios.svg" class="logo" alt="Logo GIOŚ" />
+    <h1 class="title">Główny Inspektorat Ochrony Środowiska</h1>
+
+  </div>
+  <div class="glue menu">
+    <div class="left">
+    <ul>
+      <li><a href="#title">Temperatura wody [st.C]</a></li>
+      <li><a href="#title2">Ciśnienie</a></li>
+      <li><a href="#title3">Tlen rozpuszczony [mg/l]      </a></li>
+      <li><a href="#title4">Przewodność [µS/cm]</a></li>
+      <li><a href="#title5">Poziom pH</a></li>
+      <li><a href="#title6">Siarczany [mg/l]</a></li>
+      <li><a href="#title7">Chlorki [mg/l]</a></li>
+      <li><a href="#title8">Sód [mg/l]</a></li>
+    </ul>
+  </div>
+    <div class="right">
+      <label for="miesiace">Wybierz miesiąc: </label>
+      <select name="miesiace" id="miesiace">
+        
+      <option value="-">----</option>
+      <option value="now">ostatnie 30 dni</option>
+      <option value="202301">styczeń</option>
+      <option value="202302">luty</option>
+      <option value="202303">marzec</option>
+      <option value="202304">kwiecień</option>
+    </select>
+  </div>
+    
+
+  </div>
+  <br />
+  <h2 id="title_termin">Brak danych lub wprowadzono nieprawidłowa dane</h2>
+  <p><a href="index.html">Wróć na stronę główną</a></p>
+  <!-- script src="assets/js/chart.js" -->
+</body>
+
+</html>

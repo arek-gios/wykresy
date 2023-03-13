@@ -1,13 +1,13 @@
-const data_zdarzenia = ["01.07.2022", "02.07.2022", "03.07.2022", "04.08.2022", "05.08.2022", "06.08.2022", "07.08.2022", "08.08.2022", "01.07.2022", "02.07.2022", "03.07.2022", "04.08.2022", "05.08.2022", "06.08.2022", "07.08.2022", "08.08.2022"];
-let lokalizacja = "Odra poniżej Jazu Lipki";
-const temperatura = [8.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 10.4, 8.8, 0, 16, 8, 14.1, 10.9];
-const cisnienie = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
-const tlen = [28.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 38, 9, 8, 27, 9]
-const przewodnosc = [8.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 10.4, 8.8, 0, 16, 8, 14.1, 10.9];
-const ph = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
-const siarczany = [28.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 38, 9, 8, 27, 9]
-const chlorki = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
-const sod = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
+// const data_zdarzenia = ["01.07.2022", "02.07.2022", "03.07.2022", "04.08.2022", "05.08.2022", "06.08.2022", "07.08.2022", "08.08.2022", "01.07.2022", "02.07.2022", "03.07.2022", "04.08.2022", "05.08.2022", "06.08.2022", "07.08.2022", "08.08.2022"];
+// let lokalizacja = "Odra poniżej Jazu Lipki";
+// const temperatura = [8.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 10.4, 8.8, 0, 16, 8, 14.1, 10.9];
+// const cisnienie = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
+// const tlen = [28.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 38, 9, 8, 27, 9]
+// const przewodnosc = [8.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 10.4, 8.8, 0, 16, 8, 14.1, 10.9];
+// const ph = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
+// const siarczany = [28.8, 0, 16, 8, 14.1, 10.9, 11.9, 10.9, 0, 38, 9, 8, 27, 9]
+// const chlorki = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
+// const sod = [9, 1, 9, 0, 8, 9, 8, 7, 9, 8, 9, 8, 8, 6, 8, 4];
 
 // console.log("data " + data_zdarzenia.length);
 // console.log("tlen " + tlen.length);
@@ -207,6 +207,7 @@ document.getElementById("export7").addEventListener('click', function () { chart
 document.getElementById("export8").addEventListener('click', function () { chart8.export() });
 
 
+
 // read param from url
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
@@ -238,44 +239,25 @@ let ms = document.getElementById("miesiace");
 
 document.getElementById("miesiace").addEventListener('change', function () { reload(ms.options[ms.selectedIndex].value) });
 
+console.log(ms.options[ms.selectedIndex].value + " ms.opions z reload");
+
 function reload(zmiana_daty) {
+console.log(zmiana_daty + " zmiana daty " + typeof(zmiana_daty) + " typeof" );
     if (isNaN(zmiana_daty)) {
-        window.location.href = "error.html";
+        window.location.href = "index.html";
     } else {
         window.location.href = "index.html?title=" + zmiana_daty;
     }
 }
 
 
+let response = await fetch(asserts/data/202301);
 
+if (response.ok) { // if HTTP-status is 200-299
+  // get the response body (the method explained below)
+  let text = await response.text();
+} else {
+  alert("HTTP-Error: " + response.status);
+}
 
-
-
-
-
-
-// const chart = new frappe.Chart("#chart", {
-//     data: { data,
-
-//         yMarkers: [{
-//             label: "Dopuszczalne pH", value: 24,
-//             options: { labelPos: 'left' }
-//         }],
-
-//         // yRegions: [{ label: "Region", start: -10, end: 50,
-//         //    options: { labelPos: 'right' }}]
-//     },
-
-//     title: lokalizacja,
-//     type: 'axis-mixed', // or 'bar', 'line', 'pie', 'percentage'
-//     height: 300,
-//     colors: ['red', 'blue', 'green'],
-//     tooltipOptions: {
-//         formatTooltipX: d => (d + '').toUpperCase(),
-//         formatTooltipY: d => d + ' g/m<sup>3</sup>',
-//     },
-//     lineOptions: {
-//         regionFill: 1 // default: 0 kolorowanie pod linią
-//     },
-
-// });
+console.log("response -> " + response);
